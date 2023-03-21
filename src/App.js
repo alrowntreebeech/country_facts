@@ -7,7 +7,10 @@ function App() {
     <div className="App">
       <NavigationBar />
       <header className="App-header">
+        <h1> Country FactFile </h1>
       </header>
+      <div className='image'>
+      </div>
     </div>
   );
 }

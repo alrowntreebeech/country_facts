@@ -1,0 +1,25 @@
+header {
+  margin-top: 2em;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+h1 {
+  color: white;
+}
+
+.image {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 35px;
+  margin-top: 3em;
+  background-image: url('./assets/world_map.png');
+  background-size: cover;
+  width: 75%;
+  height: 40em;
+}
