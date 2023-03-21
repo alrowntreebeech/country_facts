@@ -1,18 +1,18 @@
 import React from 'react';
-import NavigationBar from './features/navigationBar/NavigationBar';
-import './App.css';
+import Root from './components/root/Root';
+import HomePage from './components/homePage/HomePage';
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
-function App() {
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path='/' element={ <Root /> }>
+    <Route index  element={ <HomePage/> }/>
+  </Route>
+));
+
+const App = () => {
   return (
-    <div className="App">
-      <NavigationBar />
-      <header className="App-header">
-        <h1> Country FactFile </h1>
-      </header>
-      <div className='image'>
-      </div>
-    </div>
-  );
+    <RouterProvider router={router} />
+  )
 }
 
 export default App;

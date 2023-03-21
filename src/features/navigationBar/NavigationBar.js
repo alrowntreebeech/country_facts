@@ -1,7 +1,7 @@
 import React from "react";
 import "./navigationBar.css";
 
-function NavigationBar() {
+const NavigationBar =() => {
     return(
         <nav>
             <h4>
