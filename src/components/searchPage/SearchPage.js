@@ -14,8 +14,11 @@ const SearchPage = () => {
                     <input type="submit" className="button" id="countrySearchButton" value="Search"></input>
                 </div>
             </div>
+            <div className="searchResults">
+
+            </div>
         </div>
     )
-};
+}
 
 export default SearchPage;
