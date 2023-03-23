@@ -3,7 +3,12 @@ import "./countryPage.css";
 
 const CountryPage = () => {
     return (
-        <h1>Country Page</h1>
+        <div className="countryPage">
+            <h1>Country Page</h1>
+            <div className="countryProfile">
+                
+            </div>
+        </div>
     )
 }
 

@@ -38,7 +38,7 @@ export const searchPageSlice = createSlice({
             state = action.payload.map(country => {
                 return ({
                     name: country.name.common,
-                    flag: country.flags.svg,
+                    flag: country.flags.png,
                     alt: country.flags.alt
                 })
             })
