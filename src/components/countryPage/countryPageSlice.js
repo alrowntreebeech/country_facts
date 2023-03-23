@@ -24,14 +24,17 @@ const countryPageSlice = createSlice({
         },
         population: 16858333,
         continents:["North America"],
-        flag:{
-            "png":"https://flagcdn.com/w320/gt.png"
-        }
+        flag: "https://flagcdn.com/w320/gt.png",
+        alt: "The flag of Guatemala is composed of three equal vertical bands of light blue, white and light blue, with the national coat of arms centered in the white band."     
 
     }],
     reducers: {
 
     }
 });
+
+export const selectCountryProfile = state => {
+    return state.countryPage
+}
 
 export default countryPageSlice.reducer;

@@ -1,3 +1,11 @@
 h1 {
     color: white;
 }
+
+.countryProfile {
+    color: white;
+    border: 2px white solid;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
