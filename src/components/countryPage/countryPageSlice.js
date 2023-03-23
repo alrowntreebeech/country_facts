@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const countryPageSlice = createSlice({
-    name: countryPage,
+    name: "countryPage",
     initialState: [{
         name:{
             common:"Guatemala",
@@ -32,4 +32,6 @@ const countryPageSlice = createSlice({
     reducers: {
 
     }
-})
+});
+
+export default countryPageSlice.reducer;
