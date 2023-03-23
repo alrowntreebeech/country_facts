@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectCountries } from "./searchPageSlice";
+import { Link } from "react-router-dom";
 import "./searchPage.css";
 
 const SearchPage = () => {
@@ -22,7 +23,7 @@ const SearchPage = () => {
             <div className="searchResults">
                 {countryResults.map(country => {
                     return <div className="countryResult">
-                        <h4>{country.name}</h4>
+                        <Link to={`${country.name}`}><h4>{country.name}</h4></Link>
                         <img className="countryFlag" src={country.flag} alt={country.alt}/>
                     </div>
                 })}
