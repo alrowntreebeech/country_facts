@@ -29,3 +29,38 @@ label {
     font-weight: bold;
 }
 
+.searchResults {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 25px;
+}
+
+.countryResult {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 2px solid white;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: auto;
+
+}
+
+.countryFlag {
+    width: 75%;
+    height: 75%;
+    border: solid 1px grey;
+    margin-bottom: 25px;
+}
+
+.countryFlag img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+h4 {
+    color: white;
+    text-decoration: underline white;
+}
