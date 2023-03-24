@@ -10,6 +10,9 @@ const countryPageSlice = createSlice({
         currencies:{
             GTQ:{
                 name:"Guatemalan quetzal"
+            },
+            RND: {
+                name: "Random currency"
             }
         },
         capital:["Guatemala City"],
