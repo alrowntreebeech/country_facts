@@ -11,13 +11,34 @@ export const loadCountries = createAsyncThunk(
 
 export const searchPageSlice = createSlice({
     name: 'searchPage',
-    initialState: [],
+    initialState: {
+        countryInfo: [{
+                name: "Guatemala",
+                flag: "https://flagcdn.com/w320/gt.png",
+                alt: "The flag of Guatemala is composed of three equal vertical bands of light blue, white and light blue, with the national coat of arms centered in the white band."
+            },
+            {
+                name: "Germany",
+                flag: "https://flagcdn.com/w320/de.png",
+                alt: "The flag of Germany is composed of three equal horizontal bands of black, red and gold."
+            },
+            {
+                name: "Georgia",
+                flag: "https://flagcdn.com/w320/ge.png",
+                alt: "The flag of Georgia has a white field with a large centered red cross that extends to the edges and divides the field into four quarters. A small red Bolnur-Katskhuri cross is centered in each quarter."
+            },
+            {
+                name: "Gabon",
+                flag: "https://flagcdn.com/w320/ga.png",
+                alt: ""
+            }]
+    },
     reducers: {
         loadCountries: (state, action) => {
             state = action.payload.map(country => {
                 return ({
                     name: country.name.common,
-                    flag: country.flags.png,
+                    flag: country.flags.svg,
                     alt: country.flags.alt
                 })
             })
@@ -26,7 +47,7 @@ export const searchPageSlice = createSlice({
 });
 
 export const selectCountries = state => {
-    return state.searchPage
+    return state.searchPage.countryInfo;
 }
 
 

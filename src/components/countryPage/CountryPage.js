@@ -33,9 +33,9 @@ const CountryPage = () => {
     return (
         <div className="countryPage">
             <h1>{countryName}</h1>
-            {countryProfile.map(country => {
+            {countryProfile.map((country, index) => {
                 return (
-                    <div className="countryProfile">
+                    <div className="countryProfile" key={index}>
                         <div className="countryFacts">
                             <table>
                                 <tbody>
@@ -76,8 +76,8 @@ const CountryPage = () => {
                                     </tr>
                                     <tr>
                                         <td className="rowTitle">Currencies:</td>                            
-                                        <td>{currenciesNames.map(currency => {
-                                            return <p>{currency}</p>
+                                        <td>{currenciesNames.map((currency, index) => {
+                                            return <p key={index}>{currency}</p>
                                             })}</td>
                                     </tr>
                                 </tbody>
