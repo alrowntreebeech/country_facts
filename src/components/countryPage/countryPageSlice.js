@@ -10,9 +10,6 @@ const countryPageSlice = createSlice({
         currencies:{
             GTQ:{
                 name:"Guatemalan quetzal"
-            },
-            RND: {
-                name: "Random currency"
             }
         },
         capital:["Guatemala City"],
@@ -27,7 +24,7 @@ const countryPageSlice = createSlice({
         },
         population: 16858333,
         continents:["North America"],
-        flag: "https://flagcdn.com/w320/gt.png",
+        flag: "https://flagcdn.com/gt.svg",
         alt: "The flag of Guatemala is composed of three equal vertical bands of light blue, white and light blue, with the national coat of arms centered in the white band."     
 
     }],

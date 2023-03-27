@@ -40,15 +40,15 @@ const CountryPage = () => {
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td>Common Name:</td> 
+                                        <td className="rowTitle">Common Name:</td> 
                                         <td>{country.name.common}</td>
                                     </tr>
                                     <tr>
-                                        <td>Official Name:</td>
+                                        <td className="rowTitle">Official Name:</td>
                                         <td>{country.name.official}</td>
                                     </tr>
                                     <tr>
-                                        <td>Capital City:</td>
+                                        <td className="rowTitle">Capital City:</td>
                                         <td>
                                             {country.capital.map(city => {
                                             return city 
@@ -56,26 +56,26 @@ const CountryPage = () => {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Continents: </td>
+                                        <td className="rowTitle">Continents: </td>
                                     <   td>{country.continents.map(continent => continent)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Population:</td>
+                                        <td className="rowTitle">Population:</td>
                                         <td>{country.population}</td>
                                     </tr>
                                     <tr>
-                                        <td>Languages:</td>
+                                        <td className="rowTitle">Languages:</td>
                                         <td>{Object.values(country.languages)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Demonyms:</td>
+                                        <td className="rowTitle">Demonyms:</td>
                                         <td>
                                             {country.demonyms.eng.f} &#9792; <br/>
                                             {country.demonyms.eng.m} &#9794;
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Currencies:</td>                            
+                                        <td className="rowTitle">Currencies:</td>                            
                                         <td>{currenciesNames.map(currency => {
                                             return <p>{currency}</p>
                                             })}</td>
