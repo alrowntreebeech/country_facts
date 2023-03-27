@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { selectCountryProfile } from "./countryPageSlice";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCountryProfile, loadCountryProfile } from "./countryPageSlice";
 import { useParams } from "react-router-dom";
 import "./countryPage.css";
 
@@ -8,6 +8,7 @@ const CountryPage = () => {
 
     const countryProfile = useSelector(selectCountryProfile);
     const { countryName } = useParams();
+    const dispatch = useDispatch();
 
     // Access to the country currencies
     const currenciesArray = countryProfile.map(country => country.currencies);
@@ -24,11 +25,11 @@ const CountryPage = () => {
         currenciesNames.push(`${currenciesShorthand[i]}: ${currenciesObject[currenciesShorthand[i]].name}`)
     }
 
-    console.log(currenciesNames)
+    useEffect(() => {
+        const countryData = countryName.toLowerCase();
+        dispatch(loadCountryProfile(countryData));
+    }, [dispatch]);
 
-    
-
-    
 
     return (
         <div className="countryPage">
@@ -85,7 +86,7 @@ const CountryPage = () => {
                         </div>
                         <div className="flag">
                             <p>Flag:</p>
-                            <img src={country.flag} alt={country.alt}/>
+                            <img src={country.flags.svg} alt={country.flags.alt}/>
                         </div> 
                     </div>
                     )

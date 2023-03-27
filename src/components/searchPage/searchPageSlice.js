@@ -4,7 +4,7 @@ export const loadCountries = createAsyncThunk(
     "searchpage/loadCountries",
     async (searchTerm) => {
         const response = await fetch(`https://restcountries.com/v3.1/name/${searchTerm}`);
-        const json = await response.json()
+        const json = await response.json();
         return json;
     }
 )
@@ -12,38 +12,294 @@ export const loadCountries = createAsyncThunk(
 export const searchPageSlice = createSlice({
     name: 'searchPage',
     initialState: {
-        countryInfo: [{
-                name: "Guatemala",
-                flag: "https://flagcdn.com/w320/gt.png",
-                alt: "The flag of Guatemala is composed of three equal vertical bands of light blue, white and light blue, with the national coat of arms centered in the white band."
+        countryInfo: [{"name":{
+            "common":"Guatemala","official":"Republic of Guatemala",
+            "nativeName":{"spa":{"official":"República de Guatemala","common":"Guatemala"}}
             },
-            {
-                name: "Germany",
-                flag: "https://flagcdn.com/w320/de.png",
-                alt: "The flag of Germany is composed of three equal horizontal bands of black, red and gold."
+        "tld":[".gt"],
+        "cca2":"GT",
+        "ccn3":"320",
+        "cca3":"GTM",
+        "cioc":"GUA",
+        "independent":true,
+        "status":"officially-assigned",
+        "unMember":true,
+        "currencies":{"GTQ":{"name":"Guatemalan quetzal","symbol":"Q"}},
+        "idd":{"root":"+5","suffixes":["02"]},
+        "capital":["Guatemala City"],
+        "altSpellings":["GT"],
+        "region":"Americas",
+        "subregion":"Central America",
+        "languages":{"spa":"Spanish"},
+        "translations":{
+            "ara":{"official":"جمهورية غواتيمالا","common":"غواتيمالا"},
+            "bre":{"official":"Republik Guatemala","common":"Guatemala"},
+            "ces":{"official":"Republika Guatemala","common":"Guatemala"},
+            "cym":{"official":"Republic of Guatemala","common":"Guatemala"},
+            "deu":{"official":"Republik Guatemala","common":"Guatemala"},
+            "est":{"official":"Guatemala Vabariik","common":"Guatemala"},
+            "fin":{"official":"Guatemalan tasavalta","common":"Guatemala"},
+            "fra":{"official":"République du Guatemala","common":"Guatemala"},
+            "hrv":{"official":"Republika Gvatemala","common":"Gvatemala"},
+            "hun":{"official":"Guatemalai Köztársaság","common":"Guatemala"},
+            "ita":{"official":"Repubblica del Guatemala","common":"Guatemala"},
+            "jpn":{"official":"グアテマラ共和国","common":"グアテマラ"},
+            "kor":{"official":"과테말라 공화국","common":"과테말라"},
+            "nld":{"official":"Republiek Guatemala","common":"Guatemala"},
+            "per":{"official":"جمهوری گواتِمالا","common":"گواتِمالا"},
+            "pol":{"official":"Republika Gwatemali","common":"Gwatemala"},
+            "por":{"official":"República da Guatemala","common":"Guatemala"},
+            "rus":{"official":"Республика Гватемала","common":"Гватемала"},
+            "slk":{"official":"Guatemalská republika","common":"Guatemala"},
+            "spa":{"official":"República de Guatemala","common":"Guatemala"},
+            "srp":{"official":"Република Гватемала","common":"Гватемала"},
+            "swe":{"official":"Republiken Guatemala","common":"Guatemala"},
+            "tur":{"official":"Guatemala Cumhuriyeti","common":"Guatemala"},
+            "urd":{"official":"جمہوریہ گواتیمالا","common":"گواتیمالا"},
+            "zho":{"official":"危地马拉共和国","common":"危地马拉"}
+        },
+        "latlng":[15.5,-90.25],
+        "landlocked":false,
+        "borders":["BLZ","SLV","HND","MEX"],
+        "area":108889.0,
+        "demonyms":{
+            "eng":{"f":"Guatemalan","m":"Guatemalan"},
+            "fra":{"f":"Guatémaltèque","m":"Guatémaltèque"}
+        },
+        "flag":"\uD83C\uDDEC\uD83C\uDDF9",
+        "maps":{
+            "googleMaps":"https://goo.gl/maps/JoRAbem4Hxb9FYbVA",
+            "openStreetMaps":"https://www.openstreetmap.org/relation/1521463"
+        },
+        "population":16858333,
+        "gini":{"2014":48.3},
+        "fifa":"GUA",
+        "car":{"signs":["GCA"],"side":"right"},
+        "timezones":["UTC-06:00"],
+        "continents":["North America"],
+        "flags":{"png":"https://flagcdn.com/w320/gt.png","svg":"https://flagcdn.com/gt.svg","alt":"The flag of Guatemala is composed of three equal vertical bands of light blue, white and light blue, with the national coat of arms centered in the white band."},
+        "coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/gt.png","svg":"https://mainfacts.com/media/images/coats_of_arms/gt.svg"},
+        "startOfWeek":"monday","capitalInfo":{"latlng":[14.62,-90.52]},
+        "postalCode":{"format":"#####","regex":"^(\\d{5})$"}},
+        
+        {"name":{
+            "common":"Georgia",
+            "official":"Georgia",
+            "nativeName":{"kat":
+                {"official":"საქართველო",
+                "common":"საქართველო"}
+                }},
+        "tld":[".ge"],
+        "cca2":"GE",
+        "ccn3":"268",
+        "cca3":"GEO",
+        "cioc":"GEO",
+        "independent":true,
+        "status":"officially-assigned",
+        "unMember":true,
+        "currencies":{"GEL":
+            {"name":"lari","symbol":"₾"}},
+        "idd":{"root":"+9","suffixes":["95"]},
+        "capital":["Tbilisi"],
+        "altSpellings":["GE","Sakartvelo"],
+        "region":"Asia",
+        "subregion":"Western Asia",
+        "languages":{"kat":"Georgian"},
+        "translations":{
+            "ara":{"official":"جورجيا", "common":"جورجيا"},
+            "bre":{"official":"Republik Jorjia", "common":"Jorjia"},
+            "ces":{"o/fficial":"Gruzie","common":"Gruzie"},
+            "cym":{"official":"Georgia","common":"Georgia"},
+            "deu":{"official":"Georgien","common":"Georgien"},
+            "est":{"official":"Gruusia","common":"Gruusia"},
+            "fin":{"official":"Georgia","common":"Georgia"},
+            "fra":{"official":"République de Géorgie","common":"Géorgie"},
+            "hrv":{"official":"Gruzija","common":"Gruzija"},
+            "hun":{"official":"Grúzia","common":"Grúzia"},
+            "ita":{"official":"Georgia","common":"Georgia"},
+            "jpn":{"official":"グルジア","common":"グルジア"},
+            "kor":{"official":"조지아","common":"조지아"},
+            "nld":{"official":"Georgia","common":"Georgië"},
+            "per":{"official":"گرجستان","common":"گرجستان"},
+            "pol":{"official":"Gruzja","common":"Gruzja"},
+            "por":{"official":"Georgia","common":"Geórgia"},
+            "rus":{"official":"Грузия","common":"Грузия"},
+            "slk":{"official":"Gruzínsko","common":"Gruzínsko"},
+            "spa":{"official":"Georgia","common":"Georgia"},
+            "srp":{"official":"Грузија","common":"Грузија"},
+            "swe":{"official":"Georgien","common":"Georgien"},
+            "tur":{"official":"Gürcistan","common":"Gürcistan"},
+            "urd":{"official":"جارجیا","common":"جارجیا"},
+            "zho":{"official":"格鲁吉亚","common":"格鲁吉亚"}},
+        "latlng":[42.0,43.5],"landlocked":false,
+        "borders":["ARM","AZE","RUS","TUR"],
+        "area":69700.0,
+        "demonyms":{
+            "eng":{"f":"Georgian","m":"Georgian"},
+            "fra":{"f":"Géorgienne","m":"Géorgien"}
+        },
+        "flag":"\uD83C\uDDEC\uD83C\uDDEA",
+        "maps":{
+            "googleMaps":"https://goo.gl/maps/bvCaGBePR1ZEDK5cA",
+            "openStreetMaps":"https://www.openstreetmap.org/relation/28699"
             },
-            {
-                name: "Georgia",
-                flag: "https://flagcdn.com/w320/ge.png",
-                alt: "The flag of Georgia has a white field with a large centered red cross that extends to the edges and divides the field into four quarters. A small red Bolnur-Katskhuri cross is centered in each quarter."
-            },
-            {
-                name: "Gabon",
-                flag: "https://flagcdn.com/w320/ga.png",
-                alt: ""
-            }]
+        "population":3714000,
+        "gini":{"2019":35.9},
+        "fifa":"GEO",
+        "car":{"signs":["GE"],"side":"right"},
+        "timezones":["UTC+04:00"],
+        "continents":["Asia"],
+        "flags":{"png":"https://flagcdn.com/w320/ge.png","svg":"https://flagcdn.com/ge.svg","alt":"The flag of Georgia has a white field with a large centered red cross that extends to the edges and divides the field into four quarters. A small red Bolnur-Katskhuri cross is centered in each quarter."},
+        "coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/ge.png","svg":"https://mainfacts.com/media/images/coats_of_arms/ge.svg"},
+        "startOfWeek":"monday",
+        "capitalInfo":{"latlng":[41.68,44.83]},
+        "postalCode":{"format":"####","regex":"^(\\d{4})$"}},
+        
+        {"name":{
+            "common":"Germany",
+            "official":"Federal Republic of Germany",
+            "nativeName":{"deu": {
+                "official":"Bundesrepublik Deutschland",
+                "common":"Deutschland"}}},
+        "tld":[".de"],
+        "cca2":"DE",
+        "ccn3":"276",
+        "cca3":"DEU",
+        "cioc":"GER",
+        "independent":true,
+        "status":"officially-assigned",
+        "unMember":true,
+        "currencies":{"EUR":{"name":"Euro","symbol":"€"}},
+        "idd":{"root":"+4","suffixes":["9"]},
+        "capital":["Berlin"],
+        "altSpellings":["DE","Federal Republic of Germany","Bundesrepublik Deutschland"],
+        "region":"Europe",
+        "subregion":"Western Europe",
+        "languages":{"deu":"German"},
+        "translations":{
+            "ara":{"official":"جمهورية ألمانيا الاتحادية","common":"ألمانيا"},
+            "bre":{"official":"Republik Kevreadel Alamagn","common":"Alamagn"},
+            "ces":{"official":"Spolková republika Německo","common":"Německo"},
+            "cym":{"official":"Federal Republic of Germany","common":"Germany"},
+            "deu":{"official":"Bundesrepublik Deutschland","common":"Deutschland"},
+            "est":{"official":"Saksamaa Liitvabariik","common":"Saksamaa"},
+            "fin":{"official":"Saksan liittotasavalta","common":"Saksa"},
+            "fra":{"official":"République fédérale d'Allemagne","common":"Allemagne"},
+            "hrv":{"official":"Njemačka Federativna Republika","common":"Njemačka"},
+            "hun":{"official":"Német Szövetségi Köztársaság","common":"Németország"},
+            "ita":{"official":"Repubblica federale di Germania","common":"Germania"},
+            "jpn":{"official":"ドイツ連邦共和国","common":"ドイツ"},
+            "kor":{"official":"독일 연방 공화국","common":"독일"},
+            "nld":{"official":"Bondsrepubliek Duitsland","common":"Duitsland"},
+            "per":{"official":"جمهوری فدرال آلمان","common":"آلمان"},
+            "pol":{"official":"Republika Federalna Niemiec","common":"Niemcy"},
+            "por":{"official":"República Federal da Alemanha","common":"Alemanha"},
+            "rus":{"official":"Федеративная Республика Германия","common":"Германия"},
+            "slk":{"official":"Nemecká spolková republika","common":"Nemecko"},
+            "spa":{"official":"República Federal de Alemania","common":"Alemania"},
+            "srp":{"official":"Савезна Република Немачка","common":"Немачка"},
+            "swe":{"official":"Förbundsrepubliken Tyskland","common":"Tyskland"},
+            "tur":{"official":"Almanya Federal Cumhuriyeti","common":"Almanya"},
+            "urd":{"official":"وفاقی جمہوریہ جرمنی","common":"جرمنی"},
+            "zho":{"official":"德意志联邦共和国","common":"德国"}},
+        "latlng":[51.0,9.0],
+        "landlocked":false,
+        "borders":["AUT","BEL","CZE","DNK","FRA","LUX","NLD","POL","CHE"],
+        "area":357114.0,
+        "demonyms":{
+            "eng":{"f":"German","m":"German"},
+            "fra":{"f":"Allemande","m":"Allemand"}},
+        "flag":"\uD83C\uDDE9\uD83C\uDDEA",
+        "maps":{"googleMaps":"https://goo.gl/maps/mD9FBMq1nvXUBrkv6","openStreetMaps":"https://www.openstreetmap.org/relation/51477"},
+        "population":83240525,
+        "gini":{"2016":31.9},
+        "fifa":"GER",
+        "car":{"signs":["DY"],"side":"right"},
+        "timezones":["UTC+01:00"],
+        "continents":["Europe"],
+        "flags":{"png":"https://flagcdn.com/w320/de.png","svg":"https://flagcdn.com/de.svg","alt":"The flag of Germany is composed of three equal horizontal bands of black, red and gold."},
+        "coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/de.png","svg":"https://mainfacts.com/media/images/coats_of_arms/de.svg"},
+        "startOfWeek":"monday",
+        "capitalInfo":{"latlng":[52.52,13.4]},
+        "postalCode":{"format":"#####","regex":"^(\\d{5})$"}},
+        
+        {"name":{
+            "common":"Gabon","official":"Gabonese Republic",
+            "nativeName":{"fra":{"official":"République gabonaise","common":"Gabon"}}},
+        "tld":[".ga"],
+        "cca2":"GA",
+        "ccn3":"266",
+        "cca3":"GAB",
+        "cioc":"GAB",
+        "independent":true,
+        "status":"officially-assigned",
+        "unMember":true,
+        "currencies":{"XAF":{"name":"Central African CFA franc","symbol":"Fr"}},
+        "idd":{"root":"+2","suffixes":["41"]},
+        "capital":["Libreville"],
+        "altSpellings":["GA","Gabonese Republic","République Gabonaise"],
+        "region":"Africa","subregion":"Middle Africa",
+        "languages":{"fra":"French"},
+        "translations":{
+            "ara":{"official":"جمهورية الغابون","common":"الغابون"},
+            "bre":{"official":"Republik Gabonat","common":"Gabon"},
+            "ces":{"official":"Gabonská republika","common":"Gabon"},
+            "cym":{"official":"Gabonese Republic","common":"Gabon"},
+            "deu":{"official":"Gabunische Republik","common":"Gabun"},
+            "est":{"official":"Gaboni Vabariik","common":"Gabon"},
+            "fin":{"official":"Gabonin tasavalta","common":"Gabon"},
+            "fra":{"official":"République gabonaise","common":"Gabon"},
+            "hrv":{"official":"Gabon Republika","common":"Gabon"},
+            "hun":{"official":"Gaboni Köztársaság","common":"Gabon"},
+            "ita":{"official":"Repubblica gabonese","common":"Gabon"},
+            "jpn":{"official":"ガボン共和国","common":"ガボン"},
+            "kor":{"official":"가봉 공화국","common":"가봉"},
+            "nld":{"official":"Republiek Gabon","common":"Gabon"},
+            "per":{"official":"جمهوری گابُن","common":"گابن"},
+            "pol":{"official":"Republika Gabońska","common":"Gabon"},
+            "por":{"official":"República do Gabão","common":"Gabão"},
+            "rus":{"official":"Габона Республика","common":"Габон"},
+            "slk":{"official":"Gabonská republika","common":"Gabon"},
+            "spa":{"official":"República de Gabón","common":"Gabón"},
+            "srp":{"official":"Габонска Република","common":"Габон"},
+            "swe":{"official":"Republiken Gabon","common":"Gabon"},
+            "tur":{"official":"Gabon Cumhuriyeti","common":"Gabon"},
+            "urd":{"official":"جمہوریہ گیبون","common":"گیبون"},
+            "zho":{"official":"加蓬共和国","common":"加蓬"}},
+        "latlng":[-1.0,11.75],
+        "landlocked":false,
+        "borders":["CMR","COG","GNQ"],
+        "area":267668.0,
+        "demonyms":{
+            "eng":{"f":"Gabonese","m":"Gabonese"},
+            "fra":{"f":"Gabonaise","m":"Gabonais"}},
+        "flag":"\uD83C\uDDEC\uD83C\uDDE6",
+        "maps":{"googleMaps":"https://goo.gl/maps/vyRSkqw1H1fnq4ry6","openStreetMaps":"https://www.openstreetmap.org/relation/192793"},
+        "population":2225728,
+        "gini":{"2017":38.0},
+        "fifa":"GAB",
+        "car":{"signs":["G"],"side":"right"},
+        "timezones":["UTC+01:00"],
+        "continents":["Africa"],
+        "flags":{"png":"https://flagcdn.com/w320/ga.png","svg":"https://flagcdn.com/ga.svg","alt":"The flag of Gabon is composed of three equal horizontal bands of green, yellow and blue."},
+        "coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/ga.png","svg":"https://mainfacts.com/media/images/coats_of_arms/ga.svg"},
+        "startOfWeek":"monday",
+        "capitalInfo":{"latlng":[0.38,9.45]}}],
+            isLoadingCountry: false,
+            failedtoLoadCountry: false,
     },
-    reducers: {
-        loadCountries: (state, action) => {
-            state = action.payload.map(country => {
-                return ({
-                    name: country.name.common,
-                    flag: country.flags.svg,
-                    alt: country.flags.alt
+        extraReducers: (builder) => {
+            builder 
+                .addCase(loadCountries.pending, (state) => {
+                    state.isLoadingCountry = true;
+                    state.failedtoLoadCountry = false;
                 })
-            })
+                .addCase(loadCountries.fulfilled, (state, action) => {
+                    state.isLoadingCountry = false;
+                    state.countryInfo = action.payload;
+                })
         }
-    }
+    
 });
 
 export const selectCountries = state => {

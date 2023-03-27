@@ -8,7 +8,12 @@ const SearchPage = () => {
     
     const [searchTerm, setSearchTerm] = useState(""); 
     const dispatch = useDispatch();
-    const countryResults = useSelector(selectCountries)
+    const countryResults = useSelector(selectCountries);
+
+
+   useEffect(() => {
+    dispatch(loadCountries(searchTerm));
+   }, [dispatch, searchTerm])
 
 
     return(
@@ -22,9 +27,9 @@ const SearchPage = () => {
             </div>
             <div className="searchResults">
                 {countryResults.map(country => {
-                    return <div className="countryResult" key={country.name}>
-                        <Link to={`${country.name}`}><h4>{country.name}</h4></Link>
-                        <img className="countryFlag" src={country.flag} alt={country.alt}/>
+                    return <div className="countryResult">
+                        <Link to={`${country.name.common}`}><h4>{country.name.common}</h4></Link>
+                        <img className="countryFlag" src={country.flags.png} alt={country.flags.alt}/>
                     </div>
                 })}
             </div>
