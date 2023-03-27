@@ -20,14 +20,17 @@ const SearchPage = () => {
         <div className="searchPage">
             <h1>Country Search</h1>
             <div className="form" >
-                <div className="input">
+                <form className="input">
                     <label htmlFor="country">Search for a Country:</label><br/>
                     <input type="text" id="country" name="country" onChange={(e) => setSearchTerm(e.currentTarget.value)}/>
-                </div>
+                    <button type="submit" className="searchButton" value="submit">
+                    Search
+                    </button>
+                </form>
             </div>
             <div className="searchResults">
-                {countryResults.map(country => {
-                    return <div className="countryResult">
+                {countryResults.map((country, index) => {
+                    return <div className="countryResult" key={index}>
                         <Link to={`${country.name.common}`}><h4>{country.name.common}</h4></Link>
                         <img className="countryFlag" src={country.flags.png} alt={country.flags.alt}/>
                     </div>
