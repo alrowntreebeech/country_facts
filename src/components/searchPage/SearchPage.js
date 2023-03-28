@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCountries, loadCountries } from "./searchPageSlice";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./searchPage.css";
 
 const SearchPage = () => {
@@ -10,12 +10,17 @@ const SearchPage = () => {
     const dispatch = useDispatch();
     const countryResults = useSelector(selectCountries);
 
+    const location = useLocation();
+
+    useEffect(() => {
+        setSearchTerm("");
+    }, [location]);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(loadCountries(searchTerm));
     };
-
 
     return(
         <div className="searchPage">

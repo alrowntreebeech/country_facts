@@ -1,0 +1,22 @@
+.workingPage {
+    margin-top: 5em;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageContainer {
+    background-image: url(../../assets/working.gif);
+    background-size: cover;
+    height: 22em;
+    width: 30em;
+}
+
+.return {
+    margin-top: 25px;
+    background-color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 10px;
+}
