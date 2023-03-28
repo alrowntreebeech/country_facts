@@ -11,9 +11,9 @@ const SearchPage = () => {
     const countryResults = useSelector(selectCountries);
 
 
-   useEffect(() => {
+   /*useEffect(() => {
     dispatch(loadCountries(searchTerm));
-   }, [dispatch, searchTerm])
+   }, [dispatch, searchTerm])*/
 
 
     return(
