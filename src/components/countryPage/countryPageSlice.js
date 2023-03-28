@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const loadCountryProfile = createAsyncThunk(
     "countryPage/loadCountryProfile", 
     async (countryName) => {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+        const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`);
         const json = await response.json();
         return json;
 })
@@ -12,75 +12,46 @@ export const loadCountryProfile = createAsyncThunk(
 const countryPageSlice = createSlice({
     name: "countryPage",
     initialState: {
-        countryProfile: [{"name":{
-            "common":"Guatemala","official":"Republic of Guatemala",
-            "nativeName":{"spa":{"official":"República de Guatemala","common":"Guatemala"}}
+        countryProfile: [{
+            name:{
+                common:"",
+                nativeName:{}
             },
-        "tld":[".gt"],
-        "cca2":"GT",
-        "ccn3":"320",
-        "cca3":"GTM",
-        "cioc":"GUA",
-        "independent":true,
-        "status":"officially-assigned",
-        "unMember":true,
-        "currencies":{"GTQ":{"name":"Guatemalan quetzal","symbol":"Q"}},
-        "idd":{"root":"+5","suffixes":["02"]},
-        "capital":["Guatemala City"],
-        "altSpellings":["GT"],
-        "region":"Americas",
-        "subregion":"Central America",
-        "languages":{"spa":"Spanish"},
-        "translations":{
-            "ara":{"official":"جمهورية غواتيمالا","common":"غواتيمالا"},
-            "bre":{"official":"Republik Guatemala","common":"Guatemala"},
-            "ces":{"official":"Republika Guatemala","common":"Guatemala"},
-            "cym":{"official":"Republic of Guatemala","common":"Guatemala"},
-            "deu":{"official":"Republik Guatemala","common":"Guatemala"},
-            "est":{"official":"Guatemala Vabariik","common":"Guatemala"},
-            "fin":{"official":"Guatemalan tasavalta","common":"Guatemala"},
-            "fra":{"official":"République du Guatemala","common":"Guatemala"},
-            "hrv":{"official":"Republika Gvatemala","common":"Gvatemala"},
-            "hun":{"official":"Guatemalai Köztársaság","common":"Guatemala"},
-            "ita":{"official":"Repubblica del Guatemala","common":"Guatemala"},
-            "jpn":{"official":"グアテマラ共和国","common":"グアテマラ"},
-            "kor":{"official":"과테말라 공화국","common":"과테말라"},
-            "nld":{"official":"Republiek Guatemala","common":"Guatemala"},
-            "per":{"official":"جمهوری گواتِمالا","common":"گواتِمالا"},
-            "pol":{"official":"Republika Gwatemali","common":"Gwatemala"},
-            "por":{"official":"República da Guatemala","common":"Guatemala"},
-            "rus":{"official":"Республика Гватемала","common":"Гватемала"},
-            "slk":{"official":"Guatemalská republika","common":"Guatemala"},
-            "spa":{"official":"República de Guatemala","common":"Guatemala"},
-            "srp":{"official":"Република Гватемала","common":"Гватемала"},
-            "swe":{"official":"Republiken Guatemala","common":"Guatemala"},
-            "tur":{"official":"Guatemala Cumhuriyeti","common":"Guatemala"},
-            "urd":{"official":"جمہوریہ گواتیمالا","common":"گواتیمالا"},
-            "zho":{"official":"危地马拉共和国","common":"危地马拉"}
-        },
-        "latlng":[15.5,-90.25],
-        "landlocked":false,
-        "borders":["BLZ","SLV","HND","MEX"],
-        "area":108889.0,
-        "demonyms":{
-            "eng":{"f":"Guatemalan","m":"Guatemalan"},
-            "fra":{"f":"Guatémaltèque","m":"Guatémaltèque"}
-        },
-        "flag":"\uD83C\uDDEC\uD83C\uDDF9",
-        "maps":{
-            "googleMaps":"https://goo.gl/maps/JoRAbem4Hxb9FYbVA",
-            "openStreetMaps":"https://www.openstreetmap.org/relation/1521463"
-        },
-        "population":16858333,
-        "gini":{"2014":48.3},
-        "fifa":"GUA",
-        "car":{"signs":["GCA"],"side":"right"},
-        "timezones":["UTC-06:00"],
-        "continents":["North America"],
-        "flags":{"png":"https://flagcdn.com/w320/gt.png","svg":"https://flagcdn.com/gt.svg","alt":"The flag of Guatemala is composed of three equal vertical bands of light blue, white and light blue, with the national coat of arms centered in the white band."},
-        "coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/gt.png","svg":"https://mainfacts.com/media/images/coats_of_arms/gt.svg"},
-        "startOfWeek":"monday","capitalInfo":{"latlng":[14.62,-90.52]},
-        "postalCode":{"format":"#####","regex":"^(\\d{5})$"}}]
+            tld:[],
+            cca2:"",
+            ccn3:"",
+            cca3:"",
+            cioc:"",
+            independent: true,
+            status:"",
+            unMember: true,
+            currencies: {},
+            idd: {},
+            capital: [],
+            altSpellings: [],
+            region: "",
+            subregion: "",
+            languages: {},
+            translations: {},
+            latlng: [],
+            landlocked: false,
+            borders: [],
+            area: 0,
+            demonyms:{eng:{}},
+            flag:"",
+            maps:{},
+            population: 0,
+            gini: {},
+            fifa: "",
+            car:{},
+            timezones: [],
+            continents: [],
+            flags:{},
+            coatOfArms:{},
+            startOfWeek:"",
+            capitalInfo:{},
+            postalCode:{}
+        }]
     },
     extraReducers: (builder) => {
         builder
@@ -100,7 +71,11 @@ const countryPageSlice = createSlice({
 });
 
 export const selectCountryProfile = state => {
-    return state.countryPage.countryProfile
+    return state.countryPage.countryProfile;
+};
+
+export const selectCountryPageLoadStatus = state => {
+    return state.countryPage.isLoadingCountry;
 }
 
 export default countryPageSlice.reducer;

@@ -1,14 +1,24 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCountryProfile, loadCountryProfile } from "./countryPageSlice";
+import { selectCountryProfile, loadCountryProfile, selectCountryPageLoadStatus } from "./countryPageSlice";
 import { useParams } from "react-router-dom";
 import "./countryPage.css";
 
 const CountryPage = () => {
 
     const countryProfile = useSelector(selectCountryProfile);
+    const loadStatus = useSelector(selectCountryPageLoadStatus);
     const { countryName } = useParams();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const countryData = countryName.toLowerCase();
+        dispatch(loadCountryProfile(countryData));
+    }, [dispatch]);
+
+    if (loadStatus) {
+        return <h2>Loading Country Page...</h2>
+    }
 
     // Access to the country currencies
     const currenciesArray = countryProfile.map(country => country.currencies);
@@ -24,11 +34,6 @@ const CountryPage = () => {
     for (let i = 0; i < currenciesShorthand.length; i++) {
         currenciesNames.push(`${currenciesShorthand[i]}: ${currenciesObject[currenciesShorthand[i]].name}`)
     }
-
-    useEffect(() => {
-        const countryData = countryName.toLowerCase();
-        dispatch(loadCountryProfile(countryData));
-    }, [dispatch]);
 
 
     return (
