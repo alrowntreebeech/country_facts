@@ -13,9 +13,23 @@ h1 {
     height: 45rem;
 }
 
+.countryFacts {
+    width: 55%;
+    margin-right: 25px;
+}
+
+table {
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(41, 40, 40);
+}
+
 .rowTitle {
     font-weight: bold;
     text-decoration: underline;
+    width: 30%;
 }
 
 td {
@@ -24,12 +38,17 @@ td {
     font-size: 1.2rem;
 }
 
+li {
+    list-style-type: none;
+}
+
 .flag {
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: underline;
-    margin-right: 100px;
+    margin-right: 75px;
     width: 45%;
+    margin-left: 25px;
 }
 
 img {

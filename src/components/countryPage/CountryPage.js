@@ -14,7 +14,7 @@ const CountryPage = () => {
     useEffect(() => {
         const countryData = countryName.toLowerCase();
         dispatch(loadCountryProfile(countryData));
-    }, [dispatch]);
+    }, [countryName, dispatch]);
 
     if (loadStatus) {
         return <h2>Loading Country Page...</h2>
@@ -33,7 +33,7 @@ const CountryPage = () => {
     const currenciesNames = []
     for (let i = 0; i < currenciesShorthand.length; i++) {
         currenciesNames.push(`${currenciesShorthand[i]}: ${currenciesObject[currenciesShorthand[i]].name}`)
-    }
+    };
 
 
     return (
@@ -56,8 +56,8 @@ const CountryPage = () => {
                                     <tr>
                                         <td className="rowTitle">Capital City:</td>
                                         <td>
-                                            {country.capital.map(city => {
-                                            return city 
+                                            {country.capital.map((city, index) => {
+                                            return <li key={index}>{city}</li>
                                             })}
                                         </td>
                                     </tr>
@@ -67,11 +67,13 @@ const CountryPage = () => {
                                     </tr>
                                     <tr>
                                         <td className="rowTitle">Population:</td>
-                                        <td>{country.population}</td>
+                                        <td>{country.population.toLocaleString()}</td>
                                     </tr>
                                     <tr>
                                         <td className="rowTitle">Languages:</td>
-                                        <td>{Object.values(country.languages)}</td>
+                                        <td id="languagesCell">
+                                            {Object.values(country.languages).map((language, index) => {return <li key={index}>{language}</li>})}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td className="rowTitle">Demonyms:</td>
