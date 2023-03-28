@@ -72,7 +72,9 @@ const CountryPage = () => {
                                     <tr>
                                         <td className="rowTitle">Languages:</td>
                                         <td id="languagesCell">
-                                            {Object.values(country.languages).map((language, index) => {return <li key={index}>{language}</li>})}
+                                            <ul>
+                                                {Object.values(country.languages).map((language, index) => {return <li key={index}>{language}</li>})}
+                                            </ul>
                                         </td>
                                     </tr>
                                     <tr>
