@@ -1,8 +1,8 @@
 import React from "react";
-import "./workingPage.css";
+import "./inProgress.css";
 import { useNavigate } from "react-router-dom";
 
-export const WorkingPage = () => {
+export const InProgress = () => {
 
     const navigate = useNavigate();
 
