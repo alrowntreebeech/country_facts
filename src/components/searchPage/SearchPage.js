@@ -11,16 +11,17 @@ const SearchPage = () => {
     const countryResults = useSelector(selectCountries);
 
 
-   /*useEffect(() => {
-    dispatch(loadCountries(searchTerm));
-   }, [dispatch, searchTerm])*/
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(loadCountries(searchTerm));
+    };
 
 
     return(
         <div className="searchPage">
             <h1>Country Search</h1>
             <div className="form" >
-                <form className="input">
+                <form className="userForm" onSubmit={handleSubmit}>
                     <label htmlFor="country">Search for a Country:</label><br/>
                     <input type="text" id="country" name="country" onChange={(e) => setSearchTerm(e.currentTarget.value)}/>
                     <button type="submit" className="searchButton" value="submit">
