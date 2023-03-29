@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCountries, loadCountries, selectFailedSearch } from "./searchPageSlice";
+import { selectCountries, loadCountries, selectFailedSearch, selectLoadingSearch } from "./searchPageSlice";
 import { Link, useLocation } from "react-router-dom";
 import "./searchPage.css";
 
@@ -12,6 +12,7 @@ const SearchPage = () => {
    
     const countryResults = useSelector(selectCountries);
     const failedSearch = useSelector(selectFailedSearch);
+    const loadingSearch = useSelector(selectLoadingSearch);
 
     const location = useLocation();
 
@@ -25,6 +26,7 @@ const SearchPage = () => {
         dispatch(loadCountries(searchTerm));
     };
 
+
     return(
         <div className="searchPage">
             <h1>Country Search</h1>
@@ -37,7 +39,8 @@ const SearchPage = () => {
                     </button>
                 </form>
             </div>
-           {failedSearch ? (
+            {loadingSearch ? <h2>Loading Page....</h2> : null}
+            {failedSearch ? (
                 <div className="failedSearch">
                     <h3>No countries found... try again!!!</h3>
                     <img className="jollyRoger" src={require("../../assets/jolly_roger.png")} alt="Jolly Roger Flag"/>
