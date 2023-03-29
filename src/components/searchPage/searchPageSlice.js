@@ -4,8 +4,11 @@ export const loadCountries = createAsyncThunk(
     "searchpage/loadCountries",
     async (searchTerm) => {
         const response = await fetch(`https://restcountries.com/v3.1/name/${searchTerm}`);
-        const json = await response.json();
-        return json;
+        if (!response.ok) {
+            return Promise.reject();
+        }
+        const data = await response.json();
+        return data;
     }
 )
 
