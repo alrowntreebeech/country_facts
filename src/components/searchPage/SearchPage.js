@@ -50,7 +50,9 @@ const SearchPage = () => {
                     {countryResults.map((country, index) => {
                         return <div className="countryResult" key={index}>
                             <Link to={`${country.name.common}`}><h4>{country.name.common}</h4></Link>
-                            <img className="countryFlag" src={country.flags.png} alt={country.flags.alt}/>
+                            <div className="flagContainer"> 
+                                <img className="countryFlag" src={country.flags.png} alt={country.flags.alt}/>
+                            </div>
                         </div>
                     })}
                 </div>

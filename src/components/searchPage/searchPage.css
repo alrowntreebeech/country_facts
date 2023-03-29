@@ -43,24 +43,24 @@ label {
     margin-top: 25px;
     margin-bottom: 25px;
     border: 2px solid white;
-    min-width: 30%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: auto;
-
+    height: 20em;
 }
 
-.countryFlag {
+.flagContainer {
     width: 75%;
     height: 75%;
     border: solid 1px grey;
     margin-bottom: 25px;
 }
 
-.countryFlag img {
+.countryFlag {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
 }
 
