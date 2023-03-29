@@ -39,7 +39,16 @@ export const searchPageSlice = createSlice({
 
 export const selectCountries = state => {
     return state.searchPage.countryInfo;
+};
+
+export const selectLoadingSearch = state => {
+    return state.searchPage.isLoadingCountry;
 }
+
+export const selectFailedSearch = state => {
+    return state.searchPage.failedtoLoadCountry;
+};
+
 
 
 export default searchPageSlice.reducer;

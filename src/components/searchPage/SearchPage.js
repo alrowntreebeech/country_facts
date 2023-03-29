@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCountries, loadCountries } from "./searchPageSlice";
+import { selectCountries, loadCountries, selectFailedSearch } from "./searchPageSlice";
 import { Link, useLocation } from "react-router-dom";
 import "./searchPage.css";
 
 const SearchPage = () => {
     
     const [searchTerm, setSearchTerm] = useState(""); 
+
     const dispatch = useDispatch();
+   
     const countryResults = useSelector(selectCountries);
+    const failedSearch = useSelector(selectFailedSearch);
 
     const location = useLocation();
 
@@ -34,14 +37,21 @@ const SearchPage = () => {
                     </button>
                 </form>
             </div>
-            <div className="searchResults">
-                {countryResults.map((country, index) => {
-                    return <div className="countryResult" key={index}>
-                        <Link to={`${country.name.common}`}><h4>{country.name.common}</h4></Link>
-                        <img className="countryFlag" src={country.flags.png} alt={country.flags.alt}/>
-                    </div>
-                })}
-            </div>
+           {failedSearch ? (
+                <div className="failedSearch">
+                    <h3>No countries found... try again!!!</h3>
+                    <img className="jollyRoger" src={require("../../assets/jolly_roger.png")} alt="Jolly Roger Flag"/>
+                </div>
+            ) : (
+                <div className="searchResults">
+                    {countryResults.map((country, index) => {
+                        return <div className="countryResult" key={index}>
+                            <Link to={`${country.name.common}`}><h4>{country.name.common}</h4></Link>
+                            <img className="countryFlag" src={country.flags.png} alt={country.flags.alt}/>
+                        </div>
+                    })}
+                </div>
+            )}          
         </div>
     )
 }
