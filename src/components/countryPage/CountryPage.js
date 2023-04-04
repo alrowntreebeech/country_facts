@@ -95,7 +95,9 @@ const CountryPage = () => {
                         </div>
                         <div className="flag">
                             <p>Flag:</p>
-                            <img src={country.flags.svg} alt={country.flags.alt}/>
+                            <div className="countryPageFlagContainer">
+                                <img src={country.flags.svg} alt={country.flags.alt}/>
+                            </div>
                         </div> 
                     </div>
                     )
